@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="../CSS/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="make_Accbanner">
+        <h1>S O A R  H I G H</h1>
+      </nav>
+    </header>   
+    <div class="signinbox">
+      <h2>SIGN IN</h2>
+      <form name="accForm" id="MakeAccount">
+        <input type="text" id="Username" placeholder="Username" />
+        <span id="err" class="form__input-error-message"></span>
+
+        <input type="text" id="password" placeholder="Password" />
+        <span id="err1" class="form__input-error-message"></span>
+
+        <div class="btn-container">
+          <button id="MyControl" type="button" onclick="return(signinuser());">
+              <span id="disspan">LOGIN</span>
+              <img src="../Images/ValidLogin.png" class="tickimg">
+          </button>
+      </div>
+        <a href='Signup.html' id="switchP"> Don't have an account? Sign up</a>
+      </form>
+    </div>
+    <footer>
+      <p class="leftsta">&copy;Copyright 2022 HITHERTO - SOAR HIGH</p>
+      <p class="rightsta">ALL RIGHTS RESERVED</p>
+    </footer>
+    <script>
+        // Create function to check if user exists in the local storage then sign the user in
+        function signinuser(){
+
+          // Getting form input and assigning them to variables
+          let Usn = document.getElementById("Username").value;  // Extraction of Username in form
+          let User_Password = document.getElementById("password").value;  // Extraction of Password in form
+          let user_data = []; // array to hold user username and password
+
+          // Using Object.keys to get the keys stored in the local storage as an array
+          const keys = Object.keys(localStorage);
+          
+          // Check if the username inputted in the form already exists in the array "keys"
+          let user_usernames = keys.includes(document.accForm.Username.value); // statement returns either true/False 
+          
+          // Using a for loop to iterate through the length of the local storage
+          for(let i = 0; i < localStorage.length; i++) {
+
+            // Variable "key" gets all the keys that has been stored in the local storage
+            let key = localStorage.key( i );
+
+            // Parsing all the keys to convert them back to JS objects, then storing them in an array(UserPasswords)
+            let keyObject = JSON.parse( localStorage.getItem( key ) );
+
+            // combine username and password into one string and push into user_data
+            user_data.push(keyObject[0].Username + keyObject[0].Password);
+          }
+
+          // combine the form entries for username and password to check if it matches any data in the user_data array
+          let user_passwords = user_data.includes(document.accForm.Username.value + document.accForm.password.value)
+
+
+          if ( document.accForm.Username.value === ""  ) { // ensure the username field is not empty
+            err.innerHTML="Please provide your Username";
+            Username.style.border = "1px solid red"; // outlines the form entry where the error occurred
+            return false;
+          }
+          else{ // clear the error field if the error has been dealt with
+            err.innerHTML = "";
+            Username.style.border = "none";
+          }
+
+          if (!(user_usernames)){
+            err.innerHTML="This username is not registered... Try Signing up!";
+            Username.style.border = "1px solid red"; // outlines the form entry where the error occurred
+            return false;
+          }
+          else{
+            err.innerHTML = ""; // clear the error field if the error has been dealt with
+            Username.style.border = "none";
+          }
+          
+          if( document.accForm.password.value === "" ) {
+            err1.innerHTML="Please provide your password!";
+            password.style.border = "1px solid red"; // outlines the form entry where the error occurred
+            return false;
+          } 
+          else{
+            err1.innerHTML = ""; // clear the error field if the error has been dealt with
+            password.style.border = "none";
+          }
+
+
+          if(!(user_passwords)) { // returns True if password matches local database
+            err1.innerHTML="Password is incorrect";
+            password.style.border = "1px solid red"; // outlines the form entry where the error occurred
+            return false;
+          }
+
+          else{
+            err1.innerHTML = ""; // clear the error field if the error has been dealt with
+            password.style.border = "none";
+
+          }
+
+          function ValidInfoEntered(){
+          // Clear form elements
+          var element = document.getElementById("MakeAccount");
+          var child = document.getElementById("Username");
+          var child1 = document.getElementById("password");
+          element.removeChild(child);
+          element.removeChild(child1);
+
+          document.getElementById("switchP").textContent=""; // remove link to signup page
+          document.getElementById("MyControl").className = "registrationbutton"; // assign registrationbutton to the button
+          setTimeout(function(){window.location.replace("../PHP/GameHome.php");}, 2000); // change page
+        }
+
+          function sendinfo(){
+            ValidInfoEntered(); // call function
+
+            // saving the user logged in inside the session storage
+            sessionStorage['User_logged_in'] = JSON.stringify([{Username: Usn, Score: 0}]);
+
+
+            accForm.reset(); // clear form
+            }
+            sendinfo(); // function call
+        }
+    </script>
+  </body>
+</html>

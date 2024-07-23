@@ -1,0 +1,670 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500'); /* Font used for certain texts */
+
+/* Style for the foundation of all web pages */
+body {
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+  margin: 0;
+  background: #04101b url(../Images/chemist-job-application-form-thumbnail.png) no-repeat fixed center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the banner in the signin and signup pages */
+.make_Accbanner {
+  background-color: #003264;
+  text-align: left;
+  margin: -10px;
+  padding: 0px;
+  height: 70px;
+
+}
+
+/* Box containing user signin details */
+.signinbox {
+  width: 420px;
+  height: 100%;
+  background-color: #031a31;
+  border-radius: 22px;
+  margin: 255px auto auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Box containing user signup details */
+.signupbox {
+  width: 420px;
+  height: 100%;
+  margin: 160px auto auto;
+  background-color: #031a31;
+  border-radius: 22px;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@font-face {
+  font-family: myFirstFont;
+  src: url(../Fonts/BittypixMonospace-3gAG.ttf); /* font used for the game title */
+}
+
+@font-face {
+  font-family: difficultyFont;
+  src: url(../Fonts/Flappy-Bird.ttf); /* font used for the game title */
+}
+
+h1 {
+  font-family: myFirstFont;
+  text-align: center;
+  margin: auto;
+  padding-top: 27px;
+  padding-left: 15px;
+  color: #eee;
+}
+
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding: 0px;
+  padding-bottom: 0px;
+  color: #eee;
+}
+
+/* style for the form box that is contained in the register boxes */
+form {
+  background-color: #031a31;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0px;
+  text-align: center;
+  padding-bottom: 10px;
+  border-radius: 22px;
+}
+
+/* Style for the form input fields */
+form input {
+  background-color: #eee;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  padding: 15px 15px;
+  outline-color: rgb(0, 148, 116);
+  margin: 10px;
+  border-radius: 15px;
+  width: 335px;
+} 
+
+/* style for the buttons used in the sign in and sign up pages */
+input[type="button"] {
+  width: 87%;
+  height: 44px;
+  margin-top: 10px;
+  padding-top: 11px;
+  padding-right: 11px;
+  border: none;
+  background-color: hsl(11deg 100% 62%);
+  color: white;
+  font-size: 20px;
+}
+
+#buttonLocate{
+  display: grid;
+  padding-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#switchP {
+  margin: auto;
+}
+
+.form__message {
+  text-align: center;
+}
+.form__input-error-message {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: red;
+}
+
+#err{
+  border: none;
+}
+
+
+
+.form__input--neutral {
+  outline: none;
+}
+
+.form__input--error {
+  /* color: red; */
+  border: 2px solid red;
+}
+
+
+/* Style for the footer across all pages */
+footer {
+  background: #1B1C1E;
+  color: #eee;
+  padding: 0px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  height: 30px;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style for the left statement used in the footer */
+.leftsta {
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  font-size: small;
+  padding: 0px 0px 0px 0px;
+}
+
+/* style for the middle statement used in the footer */
+.middlesta {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: small;
+  padding: 0px 70px 0px 0px;
+}
+
+/* style for the right statement used in the footer */
+.rightsta {
+  text-align: right;
+  font-family: "Montserrat", sans-serif;
+  font-size: small;
+  padding: 0px 20px 0px 0px;
+}
+
+/* Style for the header containing the navigation bar used in the walkthrough, GameHome and leaderboard pages */
+.generalHeader {
+  background-color: #003264;
+  display: flex;
+  padding: 0px;
+  margin-bottom: auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 33px;
+}
+
+/* stlye used for the names of the webpages including the "sign out" button */
+li, a, button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar li {
+  display: inline-block;
+  padding: 0px 50px;
+}
+
+.navbar li a:hover {
+  color: #c1c4cc;
+}
+
+/* Used to slightly darken buttons when hovered over */
+.signoutbutton:hover {
+  background-color: rgb(236, 82, 47);
+} 
+
+.signoutbutton {
+  padding: 9px 25px;
+  margin-top: 7px;
+  margin-bottom: 8px;
+  border: none;
+  background-color: hsl(11deg 100% 62%);
+  border-radius: 50px;
+}
+
+#button :hover {
+  background-color: rgb(236, 82, 47);
+}
+
+
+/* Used to slightly darken buttons when clicked */
+.signoutbutton:active {
+  background-color: rgb(172, 54, 27);
+} 
+
+/* Style for the buttons used in both the registration pages */
+.registrationbutton {
+  padding: 9px 0px;
+  margin-top: 7px;
+  width: 362px;
+  margin-bottom: 8px;
+  background-color: hsl(11deg 100% 62%);
+  border: none;
+  border-radius: 100px;
+}
+
+/*Style for the sign in and sign up buttons */
+#MyControl{
+  padding: 9px 0px;
+  margin-top: 7px;
+  width: 362px;
+  margin-bottom: 8px;
+  background-color: hsl(11deg 100% 62%);
+  border: none;
+  border-radius: 100px;
+}
+
+/* Change background color when cursor hovers over the element */
+.registrationbutton:hover {
+  background-color: rgb(236, 82, 47);
+}
+/* Change background when button is clicked  */
+.registrationbutton:active { background-color: rgb(172, 54, 27);}
+
+
+/* Used in setting animations for my signin and sing up pages */
+@keyframes extend{
+  0%{
+    width: 362px;
+    border-radius: 100px;
+  }
+  10%{
+    width: 362px;
+    background: hsl(11deg 100% 62%);
+  }
+  20%{
+    width: 362px;
+    background: hsl(11deg 100% 62%);
+  }
+  100%{
+    width: 62px;
+    height: 42px;
+    border-radius: 100px;
+    background: transparent;
+  }
+}
+
+@-webkit-keyframes extend{
+  0%{
+    width: 362px;
+    border-radius: 100px;
+  }
+  10%{
+    width: 362px;
+    background: white;
+  }
+  20%{
+    width: 362px;
+    background: hsl(11deg 100% 62%);
+  }
+  100%{
+    width: 62px;
+    height: 42px;
+    border-radius: 100px;
+    background: hsl(11deg 100% 62%);
+  }
+}
+
+@keyframes disappear{
+  0%{
+    opacity: 1;
+  }
+  20%{
+    color: white;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes disappear{
+  0%{
+    opacity: 1;
+  }
+  20%{
+    color: white;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes appear{
+  0%{
+    opacity: 0;
+  }
+  70%{
+    opacity: 0;  
+  }
+  100% {
+    opacity: 1;
+  }
+} 
+
+@-webkit-keyframes appear{
+  0%{
+    opacity: 0;
+  }
+  70%{
+    opacity: 0;  
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#MyControl:hover{
+  background-color: rgb(236, 82, 47);
+}
+
+button > span{
+  font-size: 20px;
+  color: white;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+/* Successful login in img */
+.tickimg {
+  height: 104px;
+  pointer-events: none;
+  width: 226px;
+  top: 335px;
+  right: 0;
+  left: 20px;
+  margin: auto;
+  position: absolute;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+/* Successful login in signup page */
+.tickimgSU{
+  height: 104px;
+  pointer-events: none;
+  width: 226px;
+  top: 250px;
+  right: 0;
+  left: 20px;
+  margin: auto;
+  position: absolute;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+.registrationbutton:focus{
+  -webkit-animation: extend 0.5s ease-in;
+  animation: extend 0.5s ease-in;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.registrationbutton:focus > span{
+  animation: disappear 0.2s ease-in;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.registrationbutton:focus > img {
+  -webkit-animation: appear 1s ease-in;
+  animation: appear 1s ease-in;
+  animation-fill-mode: forwards;
+}
+
+
+@font-face {
+  font-family: myFirstFont;
+  src: url(../Fonts/BittypixMonospace-3gAG.ttf);
+}
+
+h3 {
+  font-family: myFirstFont;
+  font-size: medium;
+  text-align: center;
+  margin: -65px;
+  padding-top: 0px;
+  padding-left: 52px;
+  color: #eee;
+}
+
+/* Used to add an orange highlight on the current viewing webpage */
+.selected {
+  width: 800px;
+  background-color: hsl(11deg 100% 62%);
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+
+.selected:hover {
+  width: 800px;
+  background-color: rgb(236, 82, 47);
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+
+h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: large;
+  color: #f0e4e4;
+  text-align: center;
+}
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: large;
+  padding: 0;
+  color: #f0e4e4;
+  text-align: center;
+}
+
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-size: large;
+  padding: 5px 0 0 0;
+  margin-left: 20px;
+  background-color: #4ac2f8;
+  width: 140px;
+  height: 30px;
+  border-radius: 10px;
+  color: #f0e4e4;
+  text-align: center;
+}
+
+th{
+  border: 0px;
+}
+
+/* Style used for the box containing all the walkthrough information */
+.walkthroughbox {
+  width: 545px;
+  height: 470px;
+  margin: auto;
+  padding:0;
+  background-color: #252525;
+  border-radius: 20px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  max-width: 400px;
+  height: 100%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.content-table thead tr {
+  background-color: #252525;
+  color: #eee;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td{
+  padding: 12px 50px;
+
+}
+
+.content-table  tr{
+  /*border-bottom: 1px solid #dddddd;*/
+  color: #eee
+}
+.content-table tbody tr{
+  background-color: #031a31;
+}
+
+.content-table tbody tr:last-of-type{
+  border-bottom: 2px solid #4ac2f8;
+}
+
+
+/* Style for the button in the walkthrough page */
+.playbutton {
+  padding: 9px 25px;
+  margin-top: 7px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 50px;
+  position: absolute;
+  background-color: hsl(11deg 100% 62%);
+  left: 176px;
+  top: 529px;
+  font-size: 20px;
+}
+
+.playbutton:hover {
+  background-color: rgb(236, 82, 47);
+}
+
+/* Style for the canvas of the game, also including the background image */
+ #GameCanvas {
+   border: 3px solid black;
+   margin: 0 auto;
+   background: url(../Images/flappy-submarine-game-over.png) no-repeat center center fixed;
+   width: 600px;
+   height: 780px;
+}
+
+
+  #container {
+    margin: auto;
+    position: relative;
+  }
+
+  #StarterCanvas {
+    border: 3px solid black;
+    margin: 0 auto;
+    background: url(../Images/flappy-submarine-game-over.png) no-repeat center center fixed;
+    width: 600px;
+    height: 780px;
+  }
+
+  .playgame {
+    top: 200px;
+    left: 125px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .playGameButton {
+    font-family: difficultyFont;
+    font-size: 95px;
+    top: 335px;
+    left: 210px;
+    color: hsl(11deg 100% 62%);
+    background: transparent;
+    border: none;
+    position: absolute;
+    width: 192px;
+    height: 97px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .playGameButton:hover {
+    font-size: 92px;
+  }
+
+  .playGameButton:active {
+    font-size: 90px;
+  }
+
+
+  /*Design for the leadboard*/
+.LeaderBoardtxt {
+  font-family: difficultyFont;
+  font-size: 95px;
+  top: 472px;
+  left: 127px;
+  color: hsl(11deg 100% 62%);
+  background: transparent;
+  border: none;
+  position: absolute;
+  height: 97px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+
+/*Reduce font size when hovering */
+.LeaderBoardtxt:hover {
+  font-size: 94px;
+}
+
+/*reduce font size when clicked*/
+.LeaderBoardtxt:active {
+  font-size: 93px;
+}
+
+
+  /*Print out the title of the game on the main menu*/
+  .soar {
+    font-family: difficultyFont;
+    font-stretch: 200%;
+    font-size: 140px;
+    top: 35px;
+    left: 88px;
+    background: transparent;
+    color: hsl(11deg 100% 62%);
+    border: none;
+    position: absolute;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  /*Draw bird on the start menu*/
+  .starterBirdImage {
+    margin: auto auto auto 115px;
+    width: 125px;
+    background: transparent;
+    border: none;
+  }
+
+
+/* Style for password validation text*/
+.errorMessageBox {
+  font-family: "Montserrat", sans-serif;
+  font-size: small;
+  color: red;
+  text-decoration: none;
+  margin: auto;
+  
+}

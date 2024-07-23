@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../CSS/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="make_Accbanner">
+        <h1>S O A R  H I G H</h1>
+      </nav>
+    </header>
+    <div class="signupbox">
+      <h2>SIGN UP</h2>
+      <form name="accForm" id="MakeAccount">
+          <input type="text" id="Username" name="Username" placeholder="Username" />
+          <span id="err" class="form__input-error-message"></span>
+        
+          <input type="email" id = "email" name="Email" placeholder="Email" />
+          <span id="err1" class="form__input-error-message"></span>
+       
+          <input type="text" id = "Address" name="Address"  placeholder="Address" />
+          <span id="err2" class="form__input-error-message"></span>
+        
+          <input type="text" id = "PhoneNumber" name="ContactNo" placeholder="Phone Number" />
+          <span id="err3" class="form__input-error-message"></span>
+        
+          <input type="password" id="password" name="password" placeholder="Password" />
+          <span id="err4" class="form__input-error-message"></span>
+        
+          <input type="password" id="Confpass" name="ConfirmPassword" placeholder="Confirm Password" />
+          <span id="err5" class="form__input-error-message"></span>
+      </form>
+        <div id="buttonLocate">
+            <div class="btn-container">
+                <button id="MyControl" type="button" onclick="return(createAccount());">
+                    <span>CREATE ACCOUNT</span>
+                    <img src="../Images/ValidLogin.png" class="tickimgSU">
+                </button>
+            </div>
+
+            <a href='Signin.html' id="switchP"> Already have an account? Sign in</a>
+        </div>
+
+    </div>
+    <script>
+      function createAccount(){
+
+        // Getting form input and assigning them to letiables
+        let Usn = document.getElementById("Username").value;  // username
+
+        let pwd = document.getElementById("password").value;  // password
+        let confpwd = document.getElementById("Confpass").value; // confirm password
+        let validEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g; // valid email format
+
+        let validPhoneNumber=/^\d{8}$/; // valid phone number format
+        let minChar = RegExp('(?=.{8,})'); // To test the accepted length of password
+        let requiredNo = RegExp('(?=.*[0-9])'); // to require at least one number in the password
+
+        let UserEmail = []; // Array to store all user emails
+
+        // Using Object.keys to get the keys stored in the local storage as an array
+        const keys = Object.keys(localStorage);
+        const values = Object.values(localStorage);
+
+        // Using a for loop to iterate through the length of the local storage
+        for(let i = 0; i < localStorage.length; i++) {
+
+          // letiable "key" gets all the keys that has been stored in the local storage
+          let key = localStorage.key( i );
+
+          // Parsing all the keys to convert them back to JS objects, then storing them in an array(UserEmail)
+          let keyObject = JSON.parse( localStorage.getItem( key ) );
+          UserEmail.push(keyObject[0].Email);
+        }
+
+        // Check if the username and email inputted in the form already exist in the array "keys" and "UserEmail"
+        let user_usernames = keys.includes(document.accForm.Username.value); // statement returns either true/False
+        let user_emails = UserEmail.includes(document.accForm.email.value); // statement returns either true/False
+
+        // if - elseif statements to validate user entries
+        // Using 'Entry_validation.innerHTML' to show the error messages account to it's if-else condition
+
+        if( document.accForm.Username.value === ""  ) { // Ensures a value for username is inputted
+            err.innerHTML="Please provide your Username";
+            Username.style.border = "1px solid red";
+            return false;
+        }
+        else{
+            err.innerHTML = "";
+            Username.style.border = "none";
+
+        }
+
+        // if user_usernames returns 'True' it means the username has been used by another User account, therefore the user is informed to pick another username
+        if (user_usernames) {
+            err.innerHTML="This username already exists, try something different";
+            Username.style.border = "1px solid red";
+            return false;
+        }
+        else {
+            err.innerHTML = "";
+            Username.style.border = "none";
+        }
+
+        if( document.accForm.Email.value === "") { // Ensures a value for email is inputted
+            err1.innerHTML="Please provide your email!";
+            email.style.border = "1px solid red";
+            return false;
+        }
+        else{
+            err1.innerHTML = "";
+            email.style.border = "none";
+        }
+        // if user_emails returns 'True' it means the email has been registered by another User account, therefore the user is informed to use a different email
+        if (user_emails) {
+            err1.innerHTML="This email already exists, try something different";
+            email.style.border = "1px solid red";
+            return false;
+        }
+        else{
+            err1.innerHTML = "";
+            email.style.border = "none";
+
+        }
+        if( !validEmail.test(document.getElementById("email").value)) { // validates the format of the email inputted
+            err1.innerHTML="Please provide a valid email";
+            email.style.border = "1px solid red";
+            return false;
+        }
+        else{
+            err1.innerHTML = "";
+            email.style.border = "none";
+        }
+
+
+        if( document.accForm.Address.value === "") { // Ensures a value for Address is inputted
+            err2.innerHTML="Please provide your address!";
+            Address.style.border = "1px solid red";
+            return false;
+        }
+        else{
+            err2.innerHTML = "";
+            Address.style.border = "none";
+        }
+
+        if( document.accForm.ContactNo.value === "" ) { // Ensures a value for Contact Number is inputted
+            err3.innerHTML="Please provide your phone number";
+            PhoneNumber.style.border = "1px solid red";
+            return false;
+        }
+        else{
+            err3.innerHTML = "";
+            PhoneNumber.style.border = "1px solid red";
+        }
+
+        if( !validPhoneNumber.test(document.getElementById("PhoneNumber").value)) { // validates the format of the phone number
+            err3.innerHTML="Please provide a valid Phone Number with 8 digits!";
+            PhoneNumber.style.border = "1px solid red";
+
+            return false;
+        }
+        else{
+            err3.innerHTML = "";
+            PhoneNumber.style.border = "none";
+
+        }
+
+        if( document.accForm.password.value === "" ) { // Ensures a value for password is inputted
+            err4.innerHTML="Please provide your password!";
+            password.style.border = "1px solid red"
+            return false;
+        }
+        else{
+            err4.innerHTML = "";
+            password.style.border = "none";
+
+        }
+
+        if (minChar.test(document.accForm.password.value) === false) { // Requires that the minimum password length is 8
+            err4.innerHTML="Password should be 8 characters or more";
+            password.style.border = "1px solid red";
+            return false;
+        }
+        else{
+            err4.innerHTML = "";
+            password.style.border = "none";
+        }
+
+        if (requiredNo.test(document.accForm.password.value) === false) { // Ensures that the password contains at least one digit
+            err4.innerHTML="Password should have at least 1 digit";
+            password.style.border = "1px solid red";
+            return false;
+        }
+        else{
+            err4.innerHTML = "";
+            password.style.border = "none";
+        }
+
+        if(confpwd !== pwd ) { // Ensures that the 'confirm password' field is filled in and matches the above password
+            err5.innerHTML="Please re-enter your password";
+            Confpass.style.border = "1px solid red";
+            return false;
+        }
+        else{
+            err5.innerHTML = "";
+            Confpass.style.border = "none";
+        }
+
+        // Nested function to send user data to the local Storage
+
+        function ValidInfoEntered(){
+            // Remove all the elements of the form when user has successfully logged in
+            const element = document.getElementById("MakeAccount");
+            while (element.hasChildNodes()) {
+                element.removeChild(element.lastChild);
+            }
+
+            document.getElementById("switchP").textContent=""; // Remove link that prompts the user to sign in if they already have an account
+            document.getElementById("MyControl").className = "registrationbutton"; // Assign a different class to the login in button
+            setTimeout(function(){window.location.replace("../PHP/Walkthrough.php");}, 2000); // Change page After 2 seconds
+        }
+         let score = 0;
+        function sendinfo(){
+            // 'user_details' array to contain details inputted by the user
+            let user_details = [];
+              let user_data = {
+                Username: document.getElementById("Username").value,
+                Email: document.getElementById("email").value,
+                ContactNumber: document.getElementById("PhoneNumber").value,
+                Address: document.getElementById("Address").value,
+                Password: document.getElementById("password").value,
+                Score: score
+              }
+              user_details.push(user_data); // Push contents of user_data into the array
+
+            // Store a converted user_details array in the html local storage and session storage
+            localStorage.setItem(Usn, JSON.stringify(user_details));
+            sessionStorage.setItem('User_logged_in', JSON.stringify([{Username: Usn, Score: 0}]));
+            ValidInfoEntered();
+            accForm.reset();
+            }
+        sendinfo(); // function call
+      }
+    </script>
+    <footer>
+      <p class="leftsta">&copy;Copyright 2022 HITHERTO - SOAR HIGH</p>
+      <p class="rightsta">ALL RIGHTS RESERVED</p>
+    </footer>
+  </body>
+</html>
